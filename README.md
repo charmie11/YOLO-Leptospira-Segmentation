@@ -4,7 +4,26 @@ This repository provides an automated pipeline to extract and segment Leptospira
 
 ## How to get the source code
 
-git clone or download
+You can obtain the source code by cloning the repository using Git or by downloading it as a ZIP file.
+
+### Option 1: Using Git (Recommended)
+
+Cloning the repository is recommended as it allows you to easily update the code to the latest version.
+
+```bash
+git clone https://github.com/charmie11/YOLO-Leptospira-Segmentation.git
+cd YOLO-Leptospira-Segmentation
+```
+
+### Option 2: Downloading ZIP
+
+If you are not familiar with Git, you can download the source code as a ZIP file.
+
+1. Click the green "Code" button at the top of this repository page.
+1. Select "Download ZIP".
+1. Extract the downloaded ZIP file to your local workspace.
+
+[!NOTE] If you download the ZIP file, please ensure you keep the directory structure intact, as the script relies on relative paths for data processing.
 
 ## How to setup python environment
 
