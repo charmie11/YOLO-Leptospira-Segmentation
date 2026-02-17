@@ -41,8 +41,9 @@ If you are not familiar with Git, you can download the source code as a ZIP file
 
    It is recommended to use a virtual environment to avoid conflicts with other projects.
    ```bash
-   python3.11 -m venv .venv
-   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+   python3.11 -m venv yolo_lepto_seg
+   source yolo_lepto_seg/bin/activate  # Ubuntu and Mac
+   .yolo_lepto_seg\Scripts\activate  # Windows
    ```
 
 2. Install dependencies
@@ -144,8 +145,6 @@ By default, the training results are saved in the `PROJECT_DIR/runs/segment/trai
 This directory includes the following data:
 
 - `weights/best.pt`: The model weights that achieved the best performance on the validation set. This file is required for the testing phase.
-- `weights/last.pt`: The weights from the final epoch.
-- `results.csv`: A log of training and validation loss, as well as precision/recall metrics for each epoch.
 - `confusion_matrix.png`: A matrix showing the model's classification performance.
 - `results.png`: Visual plots of the training progress (loss and mAP curves).
 
