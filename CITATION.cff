@@ -1,0 +1,44 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: "Nakano"
+    given-names: "Risa"
+  - family-names: "Oyamada"
+    given-names: "Yuji"
+  - family-names: "Ozuru"
+    given-names: "Ryo"
+  - family-names: "Yoshimura"
+    given-names: "Michinobu"
+  - family-names: "Hiromatsu"
+    given-names: "Kenji"
+title: "Objectification of evaluation criteria in microscopic agglutination test using deep learning"
+version: 1.0.0
+doi: 10.1016/j.mimet.2024.106955
+date-released: 2024-07-01
+url: "https://github.com/charmie11/YOLO-Leptospira-Segmentation"
+keywords:
+  - Leptospirosis
+  - Machine learning
+  - Agglutination test
+  - Deep learning
+  - Artificial intelligence
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "Nakano"
+      given-names: "Risa"
+    - family-names: "Oyamada"
+      given-names: "Yuji"
+    - family-names: "Ozuru"
+      given-names: "Ryo"
+    - family-names: "Yoshimura"
+      given-names: "Michinobu"
+    - family-names: "Hiromatsu"
+      given-names: "Kenji"
+  doi: "10.1016/j.mimet.2024.106955"
+  journal: "Journal of Microbiological Methods"
+  title: "Objectification of evaluation criteria in microscopic agglutination test using deep learning"
+  volume: 222
+  year: 2024
+  publisher:
+    name: "Elsevier"
