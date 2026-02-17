@@ -149,11 +149,18 @@ This directory includes the following data:
 - `confusion_matrix.png`: A matrix showing the model's classification performance.
 - `results.png`: Visual plots of the training progress (loss and mAP curves).
 
-## YOLO: Testing (Evaluation)
+## YOLO: Performance Evaluation and Data Prediction
 
-Once training is complete, you can evaluate the model's performance on the unseen test set.
+After training, the model is applied to the unseen test set in two distinct steps:
 
-### Execution
+1. scientific validation of the model's accuracy
+1. extraction of quantitative data for research analysis
+
+### 1. Model Evaluation (Scientific Validation)
+
+This step calculates standard metrics (mAP, Precision, Recall) to prove the reliability of the trained model.
+
+#### Execution
 
 Run the evaluation script:
 
@@ -161,14 +168,38 @@ Run the evaluation script:
 python main_evaluate_yolo.py
 ```
 
-The script expects the trained weights to be located at `runs/segment/train/weights/best.pt`.
+The script automatically locates the latest trained weights at `runs/segment/train/weights/best.pt` and evaluates the performance using the test split defined in `data.yaml`.
 
-### Results
+#### Results
 
-The results of the evaluation will be saved in the `runs/segment/val` and `runs/segment/predict` directory:
+The results are saved in the `runs/segment/val` directory:
 
-- Inference Images: Visualizations of the segmentation masks applied to the test images.
-- `test_stats.csv`: Statistical metrics (Precision, Recall, mAP) specifically for the test split.
+- `confusion_matrix.png`: Visualizes how well the model distinguishes between classes (e.g., Leptospira vs. Clot).
+- `PR_curve.png`, `F1_curve.png`: Standard performance graphs for publication.
+
+### 2. Data Prediction (Quantitative Analysis)
+
+This step extracts the actual counts of bacteria and aggregates them into a structured format for your biological analysis.
+
+#### Execution
+
+Run the evaluation script:
+
+```bash
+python main_predict_yolo.py
+```
+
+#### Results
+
+The results are saved in the `runs/segment/predict` directory:
+
+- image files: All the segmented leptospira, clot, and outlier is annotated. The annotation contains boundingbox, segmentation mask, object label, and confidence as shown in the figures below.
+- text files: All the segmented objects in a test image are saved as a text file in `runs/segment/predict/labels`. The format is shown below.
+
+```txt
+<object-category-ID> <x1> <y1> <x2> <y2> ... <xn> <yn>
+```
+
 
 ## Bibliography
 
