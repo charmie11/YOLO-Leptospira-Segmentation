@@ -18,8 +18,8 @@ def save_results(results):
         summary_data.append({
             "class_id": i,
             "class_name": name,
-            "precision": results.results_dict[f"metrics/precision(M)"],  # セグメンテーション指標
-            "recall": results.results_dict[f"metrics/recall(M)"],
+            "precision": results.seg.p[i],
+            "recall": results.seg.r[i],
             "mAP50": results.maps[i],  # クラスごとのmAP50
         })
 
