@@ -66,7 +66,39 @@ If you are not familiar with Git, you can download the source code as a ZIP file
 
 ## Dataset
 
-- file structure
+The training and evaluation scripts expect the following directory structure.
+Ensuring this structure is maintained is crucial for the YOLO framework to correctly associate images with their corresponding labels.
+
+```bash
+.
+├── main_split_data.py       # Main execution script
+└── data/                    # Generated automatically by the script
+    ├── images/              # Image files for each split
+    │   ├── train/           # Training images
+    │   ├── val/             # Validation images
+    │   └── test/            # Test images
+    └── labels/              # Corresponding annotation files (YOLO format)
+        ├── train/           # Training labels
+        ├── val/             # Validation labels
+        └── test/            # Test labels
+```
+
+### Optiton 1: Use CVAT
+
+This is our recommended workflow, utilizing the provided script to automate data organization.
+
+- Annotation Tool: We use [CVAT](https://www.cvat.ai/) (Computer Vision Annotation Tool) for annotating Leptospira in microscopic images.
+- Export Format: Please export your dataset in "Ultralytics YOLO Segmentation 1.0" format.
+- Workflow: Place your exported dataset.zip in the project root and run the following command. The script will automatically extract, split, and organize the data into the data/ directory.
+
+```bash
+python main_split_data.py
+```
+
+### Option 2: Use other tools
+
+You are free to use any other annotation tools (such as LabelStudio or Roboflow).
+There are no specific restrictions on the tools used, provided that the final dataset adheres to the **Expected Directory Structure** and **YOLO segmentation format** (normalized coordinates and class indices) described above.
 
 ## Train YOLO
 
