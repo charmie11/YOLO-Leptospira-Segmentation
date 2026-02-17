@@ -27,8 +27,40 @@ If you are not familiar with Git, you can download the source code as a ZIP file
 
 ## How to setup python environment
 
-- Requirements
-- Installation
+### Requirements
+
+- Python: 3.11 (Tested and confirmed)
+- OS: Ubuntu (Recommended with NVIDIA GPU), Windows, or macOS
+- Hardware:
+  - GPU: NVIDIA GPU with CUDA support is highly recommended for training and fast inference (e.g., RTX A6000).
+  - CPU: Supported for inference and small-scale testing.
+
+### Installation
+
+1. **Create a virtual environment (Recommended)**
+   It is recommended to use a virtual environment to avoid conflicts with other projects.
+   ```bash
+   python3.11 -m venv .venv
+   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+   ```
+
+2. Install dependencies
+   The installation command for PyTorch differs depending on whether you are using a GPU or CPU.
+
+   For GPU Users (CUDA 12.x)
+   If you have an NVIDIA GPU, use the following command to install the CUDA-enabled version of PyTorch:
+
+  ```bash
+  pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+  pip install -r requirements.txt
+  ```
+
+  For CPU Users (or macOS)
+  If you do not have a compatible GPU, install the standard versions:
+  
+  ```bash
+  pip install -r requirements.txt
+  ```
 
 ## Dataset
 
