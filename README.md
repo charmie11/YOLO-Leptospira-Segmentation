@@ -38,6 +38,7 @@ If you are not familiar with Git, you can download the source code as a ZIP file
 ### Installation
 
 1. **Create a virtual environment (Recommended)**
+
    It is recommended to use a virtual environment to avoid conflicts with other projects.
    ```bash
    python3.11 -m venv .venv
@@ -45,22 +46,23 @@ If you are not familiar with Git, you can download the source code as a ZIP file
    ```
 
 2. Install dependencies
+
    The installation command for PyTorch differs depending on whether you are using a GPU or CPU.
 
    For GPU Users (CUDA 12.x)
    If you have an NVIDIA GPU, use the following command to install the CUDA-enabled version of PyTorch:
 
-  ```bash
-  pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
-  pip install -r requirements.txt
-  ```
+   ```bash
+   pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+   pip install -r requirements.txt
+   ```
 
-  For CPU Users (or macOS)
-  If you do not have a compatible GPU, install the standard versions:
+   For CPU Users (or macOS)
+   If you do not have a compatible GPU, install the standard versions:
   
-  ```bash
-  pip install -r requirements.txt
-  ```
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 ## Dataset
 
