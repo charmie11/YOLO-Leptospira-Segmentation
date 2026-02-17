@@ -118,7 +118,7 @@ This is our recommended workflow, utilizing the provided script to automate data
 - Workflow: Place your exported dataset.zip in the project root and run the following command. The script will automatically extract, split, and organize the data into the data/ directory.
 
 ```bash
-python main_split_data.py
+python main_split_dataset.py
 ```
 
 ### Option 2: Use other tools
@@ -158,7 +158,7 @@ Once training is complete, you can evaluate the model's performance on the unsee
 Run the evaluation script:
 
 ```bash
-python main_test_yolo.py
+python main_evaluate_yolo.py
 ```
 
 The script expects the trained weights to be located at `runs/segment/train/weights/best.pt`.
