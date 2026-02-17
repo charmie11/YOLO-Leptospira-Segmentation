@@ -73,6 +73,7 @@ Ensuring this structure is maintained is crucial for the YOLO framework to corre
 .
 ├── main_split_data.py       # Main execution script
 └── data/                    # Generated automatically by the script
+    ├── data.yaml            # Configuration file for YOLO (Path, Classes, etc.)
     ├── images/              # Image files for each split
     │   ├── train/           # Training images
     │   ├── val/             # Validation images
@@ -83,12 +84,37 @@ Ensuring this structure is maintained is crucial for the YOLO framework to corre
         └── test/            # Test labels
 ```
 
+### `data.yaml`
+
+The `data.yaml` file defines the dataset paths and class information.
+It should look like this:
+
+```txt
+# Path settings
+path: /path/to/project/data  # Root directory of the dataset
+train: images/train          # Relative path to training images
+val: images/val              # Relative path to validation images
+test: images/test            # Relative path to test images (optional)
+
+# Classes
+names:
+  0: leptospira
+  1: clot
+  2: outlier
+```
+
+[!TIP]
+
+- The path variable should be updated to the absolute path of your project's data folder on your local machine.
+- If you are only interested in detecting Leptospira, you can modify the names list accordingly.
+
 ### Optiton 1: Use CVAT
 
 This is our recommended workflow, utilizing the provided script to automate data organization.
 
 - Annotation Tool: We use [CVAT](https://www.cvat.ai/) (Computer Vision Annotation Tool) for annotating Leptospira in microscopic images.
 - Export Format: Please export your dataset in "Ultralytics YOLO Segmentation 1.0" format.
+- `data.yaml`: The exported archive contains `data.yaml`, which defines the dataset paths and class information.
 - Workflow: Place your exported dataset.zip in the project root and run the following command. The script will automatically extract, split, and organize the data into the data/ directory.
 
 ```bash
