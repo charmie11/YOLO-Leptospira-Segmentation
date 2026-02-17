@@ -126,9 +126,49 @@ python main_split_data.py
 You are free to use any other annotation tools (such as LabelStudio or Roboflow).
 There are no specific restrictions on the tools used, provided that the final dataset adheres to the **Expected Directory Structure** and **YOLO segmentation format** (normalized coordinates and class indices) described above.
 
-## Train YOLO
+## YOLO: Training
 
-## Test YOLO
+The training script initializes the YOLOv8-seg model and starts the learning process using the dataset prepared in the previous step.
+
+### Execution
+
+Run the following command to start training:
+
+```bash
+python main_train_yolo.py
+```
+
+### Outputs
+
+By default, the training results are saved in the `PROJECT_DIR/runs/segment/train` directory.
+This directory includes the following data:
+
+- `weights/best.pt`: The model weights that achieved the best performance on the validation set. This file is required for the testing phase.
+- `weights/last.pt`: The weights from the final epoch.
+- `results.csv`: A log of training and validation loss, as well as precision/recall metrics for each epoch.
+- `confusion_matrix.png`: A matrix showing the model's classification performance.
+- `results.png`: Visual plots of the training progress (loss and mAP curves).
+
+## YOLO: Testing (Evaluation)
+
+Once training is complete, you can evaluate the model's performance on the unseen test set.
+
+### Execution
+
+Run the evaluation script:
+
+```bash
+python main_test_yolo.py
+```
+
+The script expects the trained weights to be located at `runs/segment/train/weights/best.pt`.
+
+### Results
+
+The results of the evaluation will be saved in the `runs/segment/val` and `runs/segment/predict` directory:
+
+- Inference Images: Visualizations of the segmentation masks applied to the test images.
+- `test_stats.csv`: Statistical metrics (Precision, Recall, mAP) specifically for the test split.
 
 ## Bibliography
 
