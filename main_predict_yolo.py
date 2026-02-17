@@ -1,6 +1,7 @@
 import os
-import yaml
+from pathlib import Path
 
+import pandas as pd
 from ultralytics import YOLO
 
 from yolo_utils import get_device, get_training_result
@@ -12,15 +13,17 @@ def main():
     model = YOLO(best_model_path)
     selected_device = get_device()
 
-    # 2. 評価と予測の実行
+    # 4.
+    test_image_dir = Path(data_yaml_path).parent / "images" / "test"
     imgsz = 512
     conf = 0.5
-    model.val(
-        data=data_yaml_path,
-        split='test',
+    model.predict(
+        source=str(test_image_dir.absolute()),
         imgsz=imgsz,
         conf=conf,
         device=selected_device,
+        save=True,
+        save_txt=True,
     )
 
 
