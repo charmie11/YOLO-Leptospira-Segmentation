@@ -32,19 +32,18 @@ def main():
         old_dir = extract_path / parent / "Train"
         new_dir = extract_path / parent / "train"
         if old_dir.exists():
-            old_dir.rename(new_dir)
+            shutil.move(str(old_dir), str(new_dir))
 
     # 3. 画像以外の不要ファイルを削除 & 有効な画像リスト作成
     train_img_dir = extract_path / "images" / "train"
     all_images = []
 
-    for f in train_img_dir.iterdir():
+    for f in list(train_img_dir.iterdir()):  # 削除しながらループするので list化
         if f.is_file():
             if is_valid_image(f):
                 all_images.append(f)
             else:
-                # .DS_Storeや画像以外のゴミファイルを削除
-                f.unlink()
+                f.unlink()  # .DS_Store や壊れた画像をここで削除
 
     all_images.sort()
     image_names = [f.name for f in all_images]
