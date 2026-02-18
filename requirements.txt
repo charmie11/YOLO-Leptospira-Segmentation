@@ -5,4 +5,3 @@ PyYAML==6.0.3
 scikit-learn==1.8.0
 tqdm==4.67.1
 ultralytics==8.3.225
-faster-coco-eval==1.7.1
